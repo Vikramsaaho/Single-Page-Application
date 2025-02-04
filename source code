@@ -1,0 +1,67 @@
+// app/page.tsx
+
+import { useState } from "react";
+import { Button, Input, Card, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@shadcn/ui";
+
+// Server action function to return a greeting
+async function greetUser(name: string) {
+  return `Hello ${name}!`;
+}
+
+export default function Home() {
+  const [name, setName] = useState<string>("");
+  const [greeting, setGreeting] = useState<string | null>(null);
+
+  const handleSubmit = async () => {
+    if (name) {
+      const message = await greetUser(name);
+      setGreeting(message);
+    }
+  };
+
+  return (
+    <div className="p-6 max-w-2xl mx-auto space-y-6">
+      {/* Input Field and Submit Button */}
+      <div className="space-y-4">
+        <Input 
+          value={name} 
+          onChange={(e) => setName(e.target.value)} 
+          placeholder="Enter your name" 
+          className="w-full" 
+        />
+        <Button onClick={handleSubmit} className="w-full">
+          Submit
+        </Button>
+      </div>
+
+      {/* Greeting Message */}
+      {greeting && (
+        <div className="text-xl font-bold text-center">
+          <p>{greeting}</p>
+        </div>
+      )}
+
+      {/* Explanation Section */}
+      <Card>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger>How the code works</AccordionTrigger>
+            <AccordionContent>
+              <ul className="list-disc pl-6">
+                <li>
+                  The input is processed using the server action `greetUser` that returns a greeting message based on the name input.
+                </li>
+                <li>
+                  Shadcn UI components like `<Input />`, `<Button />`, and `<Card />` are used for styling and structure.
+                </li>
+                <li>
+                  Key Next.js features used include the server-side action handling in the component (`greetUser`).
+                </li>
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </Card>
+    </div>
+  );
+}
