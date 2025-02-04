@@ -1,75 +1,123 @@
-# Single-Page-Application
+# Person Search
 
-to build a simple Single-Page Application (SPA) using Next.js, Shadcn UI components, and server actions. The application provides a user interface where users can enter their name in an input field, submit it, and receive a personalized greeting message. Additionally, an explanation section is provided to explain the code's functionality, using Shadcn UI components for layout and styling.
+## Description
 
-Key Features
-User Input Field:
+Person Search is a Next.js application that demonstrates how to implement a search functionality using Next.js Server Actions and react-select's AsyncSelect component. Users can search for people from a pre-populated list and view detailed information about the selected person.
 
-The user can input their name into a text field.
-Submit Button:
+## Features
 
-After entering the name, the user can submit the form using a button styled with Shadcn UI components.
-Server Action:
+- Asynchronous search functionality
+- Server-side filtering of user data
+- Detailed user information display
+- Responsive design using Tailwind CSS
+- Accessibility-focused UI components from Radix UI
+- Custom fonts (Geist Sans and Geist Mono)
+- Dark mode support
+- Single-file implementation for easy understanding and deployment
 
-Upon form submission, a server action processes the user input and returns a greeting message (e.g., "Hello [Name]!").
-Greeting Message:
+## Technologies Used
 
-The greeting message is displayed dynamically after the form is submitted, personalized with the user’s name.
-Explanation Section:
+- Next.js 14.2.11 - React framework for building web applications
+- React 18 - JavaScript library for building user interfaces
+- TypeScript - Typed superset of JavaScript
+- Tailwind CSS - Utility-first CSS framework
+- Radix UI - Collection of accessible, unstyled UI components
+- Lucide React - Library of open source icons
+- React Hook Form - Performant, flexible forms library
+- Zod - TypeScript-first schema declaration and validation library
+- React Select - Flexible Select Input control for ReactJS
+- Next Themes - Abstraction for themes in Next.js projects
+- Recharts - Composable charting library built on React components
+- date-fns - Modern JavaScript date utility library
+- Embla Carousel - Lightweight carousel library
+- Sonner - Opinionated toast component for React
 
-The application includes a section explaining how the code works, styled using Shadcn UI components (such as Accordion and Card).
-Responsive Design:
+## Getting Started
 
-The page is fully responsive, ensuring it works well on both desktop and mobile devices.
-Technologies Used
-Next.js:
-A React framework for building fast, scalable web applications with support for both client-side and server-side rendering. In this project, we focus on the SPA behavior, and server-side actions are used for greeting message processing.
-Shadcn UI:
-A library that provides tailwind-based UI components. We use it for styling the input field, button, and other components like cards and accordions.
-TypeScript:
-Provides type safety, ensuring that the application is free of type-related bugs during development.
-Server Actions:
-The project leverages Next.js 15.1 features, such as server-side processing via a server action (greetUser), which receives input from the client, processes it, and returns the result.
-Code Walkthrough
-User Input:
+### Prerequisites
 
-The user enters their name into the Input field, which is controlled by React state.
-Submit Action:
+- Node.js 14.6.0 or newer
+- npm
 
-When the submit button is clicked, the handleSubmit function is triggered.
-The function calls the greetUser server action to process the name and return the greeting message.
-Display Greeting:
+### Installation
 
-Once the server returns the greeting message, it is stored in the state and displayed below the form.
-Explanation Section:
+1. Clone the repository:
 
-An accordion-style component is used to explain the functionality of the app in a collapsible section. It uses Shadcn UI components to maintain consistency in the UI design.
-Styling and UI Components
-Shadcn UI Components Used:
+```bash
+git clone https://github.com/gocallum/person-search.git
+cd person-search
+```
 
-Input: For the user to enter their name.
-Button: For submitting the form.
-Card: Used to wrap the explanation section.
-Accordion: Displays the explanation section in a collapsible format.
-CSS:
 
-Tailwind CSS (through Shadcn UI) is used for styling the components.
-Running the Application Locally
-To run the app:
+2. Install the dependencies:
 
-Ensure you have Node.js installed.
-Clone the repo and navigate to the project directory.
-Install dependencies:
-
+```bash 
 npm install
-Start the development server:
 
+```
+
+
+
+3. Create a `.env.local` file in the root directory and add any necessary environment variables.
+
+### Running the Development Server
+
+
+```bash
 npm run dev
-Open the app at http://localhost:3000 in your browser.
-Testing and Validation
-Input Field: Ensure that the input field works by entering different names.
-Submit Button: When clicked, it should call the server action and return a greeting message.
-Explanation Section: Verify that it explains the core functionality clearly and is styled properly.
-Responsiveness: Test on both desktop and mobile devices to ensure that the design adapts correctly.
-Conclusion
-This project demonstrates a basic implementation of server-side actions in Next.js, combined with UI styling using Shadcn UI components. It allows users to interact with the page, input data, and receive real-time feedback. The application also includes an informative explanation section that helps users understand how the code works. By leveraging modern frameworks and libraries, this project showcases how to create responsive, user-friendly web applications.
+```
+
+person-search/
+├── app/
+│   └── page.tsx
+├── public/
+├── .eslintrc.json
+├── next.config.js
+├── package.json
+├── README.md
+├── tailwind.config.ts
+└── tsconfig.json
+
+
+## How It Works
+
+1. The application uses a simulated server action to filter user data based on the input query.
+2. The `AsyncSelect` component from react-select is used to provide an asynchronous search experience.
+3. When a user is selected, their details are displayed in a `UserCard` component.
+4. The UI is built using Radix UI components and styled with Tailwind CSS.
+5. The application uses Next.js App Router for routing and layout management.
+6. Dark mode is supported using the next-themes library.
+7. All components (Navbar, Footer, UserSearch, and UserCard) are implemented in a single file for simplicity.
+
+## Customization
+
+- To modify the pre-populated user data, edit the `users` array in the `page.tsx` file.
+- To change the styling, you can modify the Tailwind classes in the components.
+- To add or remove fields from the user data, update the user objects in the `users` array and modify the `UserCard` component accordingly.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- Next.js team for the excellent framework
+- Vercel for the deployment platform
+- Radix UI for the accessible UI components
+- All contributors and supporters of the open-source libraries used in this project
+
+## Contact
+
+Callum Bir - [@callumbir](https://twitter.com/callumbir) 
+
+Project Link: [https://github.com/gocallum/person-search](https://github.com/gocallum/person-search)
