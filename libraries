@@ -1,0 +1,19 @@
+npx create-next-app@latest my-shadcn-app --typescript
+cd my-shadcn-app
+npm install @shadcn/ui
+<Input 
+  value={name} 
+  onChange={(e) => setName(e.target.value)} 
+  placeholder="Enter your name" 
+  className="w-full" 
+/>
+<Button onClick={handleSubmit} className="w-full">
+  Submit
+</Button>
+const handleSubmit = async () => {
+  if (name) {
+    const message = await greetUser(name);
+    setGreeting(message);
+  }
+};
+
